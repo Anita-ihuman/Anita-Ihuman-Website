@@ -54,33 +54,6 @@ const impactStats = [
 export default function Community() {
   return (
     <Layout>
-      {/* Hero */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <SectionHeader
-            tag="Community"
-            title="Open Source & Community Leadership"
-            description="My journey in open source goes beyond code. It's about building sustainable communities, advocating for inclusivity, and shaping the future of collaborative development."
-          />
-
-          {/* Impact Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            {impactStats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center p-6 bg-card rounded-2xl border border-border"
-              >
-                <p className="text-4xl md:text-5xl font-bold text-primary mb-2">{stat.number}</p>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Involvements */}
       <section className="section-padding bg-secondary/30">
@@ -112,47 +85,6 @@ export default function Community() {
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DEI Section */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <SectionHeader
-              tag="DEI Work"
-              title="Diversity, Equity & Inclusion"
-              description="Creating more inclusive spaces in tech and open source."
-            />
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="p-8 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl border border-primary/20"
-            >
-              <p className="body-base mb-6">
-                My DEI work in open source focuses on creating equitable pathways for underrepresented contributors. Through research, mentorship, and policy advocacy, I work to ensure that open source is truly open to everyone.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  <span className="text-muted-foreground">Leading the CHAOSS DEI Interview Campaign to understand barriers in open source</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  <span className="text-muted-foreground">Collaborating with University of Toronto on Code of Conduct research</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  <span className="text-muted-foreground">Mentoring women in tech through She Code Africa and other programs</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  <span className="text-muted-foreground">Advocating for inclusive governance practices in open-source foundations</span>
-                </li>
-              </ul>
-            </motion.div>
           </div>
         </div>
       </section>

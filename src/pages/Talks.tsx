@@ -10,125 +10,220 @@ const categories = ["All", "Conference", "YouTube", "Podcast", "Workshop", "Pane
 
 const talks = [
   {
-    title: "Building Inclusive Open Source Communities",
-    event: "KubeCon NA 2024",
+    title: "Leveling up the Kubernetes Development Experience with Remocal development",
+    event: "Dev Fest Lagos",
     date: "Nov 2024",
     type: "video" as const,
-    link: "https://youtube.com",
+    link: "https://www.youtube.com/watch?v=-MTVnTKz6Gg",
     category: "Conference",
   },
   {
-    title: "Developer Experience in Cloud-Native Ecosystems",
-    event: "Open Source Summit Europe",
-    date: "Oct 2024",
+    title: "Open Source DEI: Transitioning from Intentions to Impact", 
+    event: "Open Source Summit North America",
+    date: "June 2023",
     type: "video" as const,
-    link: "https://youtube.com",
+    link: "https://youtu.be/QAfIxTjVNl8?si=WOr1_HVOOTlq8dqT",
     category: "Conference",
   },
   {
-    title: "The Future of DevRel: Trends and Predictions",
-    event: "DevRelCon London",
-    date: "Sep 2024",
+    title: "How Implicit Bias Affects Diversity and Inclusion in Open Source",
+    event: "KubeCon + CloudNativeCon Europe",
+    date: "May 2023",
     type: "video" as const,
-    link: "https://youtube.com",
+    link: "https://www.youtube.com/watch?v=htjoBHaDLIk",
     category: "Conference",
   },
   {
-    title: "Kubernetes Policy Management Best Practices",
-    event: "Cloud Native Rejekts",
-    date: "Aug 2024",
-    type: "slides" as const,
-    link: "https://speakerdeck.com",
+    title: "Mirror Mirror on My local machine ",
+    event: "Conf42",
+    date: "September 2024",
+    type: "video" as const,
+    link: "https://www.youtube.com/watch?v=7JyQsPXh-uU",
     category: "Workshop",
   },
   {
-    title: "Breaking Into Developer Relations",
+    title: "Community Health Through CHAOSS with Anita Ihuman",
     event: "DevRel Podcast",
-    date: "Jul 2024",
-    type: "podcast" as const,
-    link: "https://spotify.com",
+    date: "March 2024",
+    type: "video" as const,
+    link: "https://www.youtube.com/watch?v=R-kAzb-Wvis",
     category: "Podcast",
   },
   {
-    title: "Open Source Governance and Sustainability",
-    event: "All Things Open",
-    date: "Jun 2024",
+    title: "Quality onboarding: A ticket to a healthy open source experience",
+    event: "Upstream 2022",
+    date: "Jun 2022",
     type: "video" as const,
-    link: "https://youtube.com",
+    link: "https://www.youtube.com/watch?v=VAv8OVXijw4",
     category: "Conference",
   },
   {
-    title: "Women in Open Source: Panel Discussion",
-    event: "FOSDEM 2024",
-    date: "Feb 2024",
+    title: "Quality Documentation: The Key to Open Source Grow",
+    event: " DevConf.CZ",
+    date: "January 2022",
     type: "video" as const,
-    link: "https://youtube.com",
+    link: "https://www.youtube.com/watch?v=WKfUfUvY7Tk",
+    category: "Conference",
+  },
+  {
+    title: "DEI Metrics Overcoming Social Barriers in OSS",
+    event: "CHAOSScast",
+    date: "Jan 2024",
+    type: "video" as const,
+    link: "https://www.youtube.com/watch?v=zUGG2Y3sH2w&t=158s",
+    category: "Podcast",
+  },
+  {
+    title: "OSCA, Docs, and Burnout with Anita Ihuman and Atinuke Oluwabamikemi Kayode s",
+    event: "Sustain OSS",
+    date: "June 2024",
+    type: "video" as const,
+    link: "https://www.youtube.com/watch?v=azODMRP-mCw",
     category: "Panel",
   },
   {
-    title: "Community Metrics That Matter",
-    event: "CHAOSScon",
-    date: "Jan 2024",
+    title: "AMA: Building Inclusive and Thriving Open Source Communities",
+    event: "Chimoney",
+    date: "October 2025",
     type: "video" as const,
-    link: "https://youtube.com",
-    category: "Conference",
-  },
-  {
-    title: "Technical Writing for Developers",
-    event: "Write the Docs",
-    date: "Dec 2023",
-    type: "slides" as const,
-    link: "https://speakerdeck.com",
-    category: "Workshop",
-  },
-  {
-    title: "The Role of DevRel in Startup Growth",
-    event: "Startup Podcast",
-    date: "Nov 2023",
-    type: "podcast" as const,
-    link: "https://spotify.com",
-    category: "Podcast",
+    link: "https://www.youtube.com/watch?v=TLk_i81q3e8",
+    category: "Panel",
   },
 ];
 
 const youtubeVideos = [
   {
-    title: "What is Developer Relations? A Complete Guide",
-    channel: "DevRel Academy",
-    date: "Oct 2024",
-    link: "https://youtube.com",
+    title: "How Open Source Powers UNICEF’s Innovation | Ep. 6",
+    channel: "Tech With Anita Ihuman",
+    date: "September 2025",
+    link: "https://youtu.be/9nVeKX5duxs?si=pq0XMVYpcaAjxync",
   },
   {
-    title: "Building Communities at Scale - Interview with Anita Ihuman",
-    channel: "Cloud Native TV",
-    date: "Sep 2024",
-    link: "https://youtube.com",
+    title: "How Open Source is Empowering Next-Gen Researchers 🔍 | Ep. 5",
+    channel: "Tech With Anita Ihuman",
+    date: "July 2025",
+    link: "https://www.youtube.com/watch?v=8wpJMhQ_qVU&t=36s",
   },
   {
-    title: "Kubernetes for Beginners Workshop",
-    channel: "CNCF",
-    date: "Aug 2024",
-    link: "https://youtube.com",
+    title: "Open Source in Data Science: A Data Scientist’s Guide to Open Source | Ep. 4",
+    channel: "Tech With Anita Ihuman",
+    date: "July 2025",
+    link: "https://youtu.be/dQLAJlq5dsM?si=4RIzn96mx7cuhhql",
   },
   {
-    title: "Open Source Sustainability Panel",
-    channel: "Open Source Summit",
-    date: "Jul 2024",
-    link: "https://youtube.com",
+    title: "Open Source and Design: How to contribute to open source as a Product Designers | Ep. 3",
+    channel:  "Tech With Anita Ihuman",
+    date: "June 2025",
+    link: "https://www.youtube.com/watch?v=bujFSNysipw&t=6s",
   },
   {
-    title: "Technical Writing Tips for Developers",
-    channel: "Write the Docs",
-    date: "Jun 2024",
-    link: "https://youtube.com",
+    title: "How microbiologists use open source to decode microbial life | Ep. 2",
+    channel: "Tech With Anita Ihuman",
+    date: "April 2025",
+    link: "https://www.youtube.com/watch?v=7yii3zpOCbg&t=22s",
   },
   {
-    title: "Women in Tech: Breaking Barriers",
-    channel: "She Code Africa",
-    date: "May 2024",
-    link: "https://youtube.com",
+    title: "Open Source in Security: Is Open Source Less Secure? | Ep. 1",
+    channel:  "Tech With Anita Ihuman",
+    date: "March 2025",
+    link: "https://www.youtube.com/watch?v=UvLGKg4W-UI&t=44s",
   },
 ];
+
+// Helper: extract YouTube video ID from various YouTube URL formats
+function getYouTubeId(url: string): string | null {
+  try {
+    // covers: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/embed/ID
+    const reg = /(?:youtube(?:-nocookie)?\.com\/(?:.*v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/i;
+    const m = url.match(reg);
+    return m ? m[1] : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+// VideoCard: shows thumbnail and replaces it with an embedded player when clicked
+function VideoCard({ video, index }: { video: typeof youtubeVideos[number]; index: number }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const id = getYouTubeId(video.link);
+
+  // If we couldn't parse an ID, fall back to a simple external link card
+  if (!id) {
+    return (
+      <motion.a
+        key={video.title}
+        href={video.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        className="group block"
+      >
+        <div className="relative aspect-video rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 mb-4 overflow-hidden">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Play className="w-6 h-6 text-primary-foreground ml-1" />
+            </div>
+          </div>
+          <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors" />
+        </div>
+        <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2">{video.title}</h3>
+        <div className="flex items-center justify-between text-sm text-muted-foreground">
+          <span>{video.channel}</span>
+          <span>{video.date}</span>
+        </div>
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.div
+      key={video.title}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group block"
+    >
+      <div className="relative aspect-video rounded-xl overflow-hidden mb-4 bg-black">
+        {!isPlaying ? (
+          <>
+            <img
+              src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
+              alt={video.title}
+              className="w-full h-full object-cover"
+            />
+            <button
+              onClick={() => setIsPlaying(true)}
+              className="absolute inset-0 flex items-center justify-center"
+              aria-label={`Play ${video.title}`}
+            >
+              <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Play className="w-6 h-6 text-primary-foreground ml-1" />
+              </div>
+            </button>
+          </>
+        ) : (
+          <iframe
+            className="w-full h-full"
+            src={`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`}
+            title={video.title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        )}
+      </div>
+      <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2">{video.title}</h3>
+      <div className="flex items-center justify-between text-sm text-muted-foreground">
+        <span>{video.channel}</span>
+        <span>{video.date}</span>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Talks() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -173,9 +268,42 @@ export default function Talks() {
             <div className="mb-16">
               <h3 className="heading-4 mb-6">Conference Talks & Podcasts</h3>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                {filteredTalks.map((talk, index) => (
-                  <TalkCard key={talk.title} {...talk} index={index} />
-                ))}
+                {filteredTalks.map((talk, index) => {
+                  // If this talk is a video and we can parse a YouTube ID, render an inline video card
+                  if (talk.type === "video") {
+                    const id = getYouTubeId(talk.link);
+                    if (id) {
+                      return (
+                        <motion.div
+                          key={talk.title}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: index * 0.06 }}
+                          className="group block"
+                        >
+                          <div className="relative aspect-video rounded-xl overflow-hidden mb-4 bg-black">
+                            <a href={talk.link} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                              <img
+                                src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
+                                alt={talk.title}
+                                className="w-full h-full object-cover"
+                              />
+                            </a>
+                          </div>
+                          <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2">{talk.title}</h3>
+                          <div className="flex items-center justify-between text-sm text-muted-foreground">
+                            <span>{talk.event}</span>
+                            <span>{talk.date}</span>
+                          </div>
+                        </motion.div>
+                      );
+                    }
+                  }
+
+                  // Fallback: render the existing TalkCard for non-video or unparseable links
+                  return <TalkCard key={talk.title} {...talk} index={index} />;
+                })}
               </div>
             </div>
           )}
@@ -183,36 +311,10 @@ export default function Talks() {
           {/* YouTube Section */}
           {showYouTube && (
             <div>
-              <h3 className="heading-4 mb-6">YouTube Appearances</h3>
+              <h3 className="heading-4 mb-6">Tech With Anita Ihuman</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {youtubeVideos.map((video, index) => (
-                  <motion.a
-                    key={video.title}
-                    href={video.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group block"
-                  >
-                    <div className="relative aspect-video rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 mb-4 overflow-hidden">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <Play className="w-6 h-6 text-primary-foreground ml-1" />
-                        </div>
-                      </div>
-                      <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors" />
-                    </div>
-                    <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                      {video.title}
-                    </h3>
-                    <div className="flex items-center justify-between text-sm text-muted-foreground">
-                      <span>{video.channel}</span>
-                      <span>{video.date}</span>
-                    </div>
-                  </motion.a>
+                  <VideoCard key={video.title} video={video} index={index} />
                 ))}
               </div>
 
@@ -223,7 +325,7 @@ export default function Talks() {
                 viewport={{ once: true }}
                 className="text-center mt-12"
               >
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.youtube.com/@TechwithAnita/" target="_blank" rel="noopener noreferrer">
                   <Button variant="orange-outline" size="lg">
                     <ExternalLink className="w-5 h-5" />
                     View All Videos

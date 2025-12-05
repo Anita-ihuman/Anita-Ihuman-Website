@@ -10,10 +10,9 @@ import { useToast } from "@/hooks/use-toast";
 
 const socialLinks = [
   { name: "LinkedIn", href: "https://linkedin.com/in/anita-ihuman", icon: Linkedin },
-  { name: "Twitter", href: "https://twitter.com/Anita_Ihuman", icon: Twitter },
+  { name: "X", href: "https://twitter.com/Anita_Ihuman", icon: Twitter },
   { name: "GitHub", href: "https://github.com/Anita-ihuman", icon: Github },
   { name: "Medium", href: "https://medium.com/@anitaihuman", icon: BookOpen },
-  { name: "Facebook", href: "https://facebook.com", icon: Facebook },
 ];
 
 export default function Contact() {
@@ -54,16 +53,6 @@ export default function Contact() {
               transition={{ duration: 0.5 }}
             >
               <h3 className="heading-4 mb-6">Get in Touch</h3>
-              
-              <div className="mb-8">
-                <p className="text-muted-foreground mb-2">Email me at</p>
-                <a
-                  href="mailto:charlesanita403@gmail.com"
-                  className="text-xl font-semibold text-foreground hover:text-primary transition-colors"
-                >
-                  charlesanita403@gmail.com
-                </a>
-              </div>
 
               <div className="mb-8">
                 <p className="text-muted-foreground mb-4">Connect on social</p>
@@ -126,7 +115,8 @@ export default function Contact() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6" action="https://formspree.io/f/mgvgzllp"
+  method="POST">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
                         Name

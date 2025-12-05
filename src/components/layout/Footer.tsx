@@ -5,13 +5,13 @@ const socialLinks = [
   { name: "LinkedIn", href: "https://linkedin.com/in/anita-ihuman", icon: Linkedin },
   { name: "Twitter", href: "https://twitter.com/Anita_Ihuman", icon: Twitter },
   { name: "GitHub", href: "https://github.com/Anita-ihuman", icon: Github },
-  { name: "Medium", href: "https://medium.com/@anitaihuman", icon: BookOpen },
-    { name: "Youtube", href: "https://medium.com/@anitaihuman", icon: Youtube },
+  { name: "Medium", href: "https://medium.com/@Anita-ihumann", icon: BookOpen },
+  { name: "Youtube", href: "https://www.youtube.com/@TechwithAnita/videos", icon: Youtube },
 ];
 
 const quickLinks = [
   { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
+  { name: "Blogs", href: "/blog" },
   { name: "Talks", href: "/talks" },
   { name: "Contact", href: "/contact" },
 ];
@@ -95,7 +95,7 @@ export function Footer() {
               href="mailto:charlesanita403@gmail.com"
               className="text-primary hover:underline text-sm"
             >
-              charlesanita403@gmail.com
+              Contact me
             </a>
           </div>
         </div>

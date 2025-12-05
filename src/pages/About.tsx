@@ -5,6 +5,9 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 
+// Replace this with your Notion public/share URL (or a direct PDF URL if you want forced download)
+const RESUME_URL = "https://anitaihuman.notion.site/Anita-Ihuman-ae956025133140a9a6ce9615907733d3?source=copy_link";
+
 const milestones = [
   {
     year: "2024",
@@ -45,12 +48,12 @@ const milestones = [
 ];
 
 const organizations = [
-  { name: "mirrord", role: "Senior Developer Advocate" },
-  { name: "Kyverno", role: "Developer Advocate" },
+  { name: "MetalBear", role: "Senior Developer Advocate" },
+  { name: "Nirmata", role: "Developer Advocate" },
   { name: "CHAOSS", role: "Governing Board Member" },
   { name: "NumFOCUS", role: "Board Member" },
   { name: "OpenUK", role: "Ambassador" },
-  { name: "Meshery", role: "Mentor" },
+  { name: "Layer5", role: "Mentor" },
 ];
 
 export default function About() {
@@ -86,10 +89,18 @@ export default function About() {
               <p className="body-large mb-8">
                 I'm Anita Ihuman, a Senior Developer Advocate passionate about the intersection of open-source technology, developer experience, and inclusive community building.
               </p>
-              <Button variant="orange" size="lg">
-                <Download className="w-5 h-5" />
-                Download Resume
-              </Button>
+              <a
+                href={RESUME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open resume in Notion"
+                className="inline-block"
+              >
+                <Button variant="orange" size="lg">
+                  <Download className="w-5 h-5" />
+                  Download Resume
+                </Button>
+              </a>
             </motion.div>
 
             <motion.div
