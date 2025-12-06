@@ -6,7 +6,7 @@ const socialLinks = [
   { name: "Twitter", href: "https://twitter.com/Anita_Ihuman", icon: Twitter },
   { name: "GitHub", href: "https://github.com/Anita-ihuman", icon: Github },
   { name: "Medium", href: "https://medium.com/@Anita-ihumann", icon: BookOpen },
-  { name: "Youtube", href: "https://www.youtube.com/@TechwithAnita/videos", icon: Youtube },
+  { name: "Youtube", href: "https://www.youtube.com/@TechwithAnita", icon: Youtube },
 ];
 
 const quickLinks = [
