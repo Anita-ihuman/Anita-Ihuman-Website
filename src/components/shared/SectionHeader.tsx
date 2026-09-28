@@ -14,7 +14,7 @@ export function SectionHeader({ tag, title, description, align = "center" }: Sec
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""} mb-12 md:mb-16`}
+      className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""} mb-8 md:mb-10`}
     >
       {tag && (
         <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">

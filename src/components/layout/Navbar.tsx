@@ -12,27 +12,18 @@ import {
   ChevronDown,
   FlaskConical,
   Star,
-  BookOpen
+  BookOpen,
+  Briefcase
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const mainNavItems = [
   { name: "About", href: "/about", icon: User },
-  { name: "Blog", href: "/blog", icon: FileText },
-  { name: "Talks & Engagements", href: "/talks", icon: Mic },
-  { name: "Community", href: "/community", icon: Users },
-];
-
-const moreItems = [
+  { name: "Work with me", href: "/work-with-me", icon: Briefcase },
+  { name: "Writing", href: "/blog", icon: FileText },
+  { name: "Talks", href: "/talks", icon: Mic },
   { name: "Research", href: "/research", icon: FlaskConical },
-  { name: "Testimonials", href: "/testimonials", icon: Star },
 ];
 
 export function Navbar() {
@@ -69,32 +60,7 @@ export function Navbar() {
                 {item.name}
               </Link>
             ))}
-            
-            {/* More Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-200">
-                  <BookOpen className="w-4 h-4" />
-                  More
-                  <ChevronDown className="w-3 h-3" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48 bg-popover border border-border">
-                {moreItems.map((item) => (
-                  <DropdownMenuItem key={item.name} asChild>
-                    <Link
-                      to={item.href}
-                      className={`flex items-center gap-2 w-full ${
-                        isActive(item.href) ? "text-primary" : ""
-                      }`}
-                    >
-                      <item.icon className="w-4 h-4" />
-                      {item.name}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+
           </div>
 
           {/* CTA & Theme Toggle */}
@@ -103,7 +69,7 @@ export function Navbar() {
             <Link to="/contact">
               <Button variant="orange" size="sm">
                 <MessageSquare className="w-4 h-4" />
-                Get in Touch
+                Get in touch
               </Button>
             </Link>
           </div>
@@ -147,26 +113,10 @@ export function Navbar() {
                     {item.name}
                   </Link>
                 ))}
-                <div className="border-t border-border my-2" />
-                {moreItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium transition-all ${
-                      isActive(item.href)
-                        ? "bg-primary/10 text-primary"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                    }`}
-                  >
-                    <item.icon className="w-5 h-5" />
-                    {item.name}
-                  </Link>
-                ))}
                 <div className="pt-2 px-4">
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     <Button variant="orange" className="w-full">
-                      Get in Touch
+                      Get in touch
                     </Button>
                   </Link>
                 </div>

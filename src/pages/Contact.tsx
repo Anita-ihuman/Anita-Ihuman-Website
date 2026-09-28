@@ -1,18 +1,22 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Twitter, Github, BookOpen, Facebook, Send, Check } from "lucide-react";
+import { Mail, Linkedin, Twitter, Github, BookOpen, Youtube, Send, Check } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { SPEAKING_EMAIL } from "@/data/profile";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mgvgzllp";
 
 const socialLinks = [
   { name: "LinkedIn", href: "https://linkedin.com/in/anita-ihuman", icon: Linkedin },
   { name: "X", href: "https://twitter.com/Anita_Ihuman", icon: Twitter },
   { name: "GitHub", href: "https://github.com/Anita-ihuman", icon: Github },
-  { name: "Medium", href: "https://medium.com/@anitaihuman", icon: BookOpen },
+  { name: "Medium", href: "https://medium.com/@Anita-ihuman", icon: BookOpen },
+  { name: "YouTube", href: "https://www.youtube.com/@TechwithAnita", icon: Youtube },
 ];
 
 export default function Contact() {
@@ -22,17 +26,35 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+      if (!response.ok) {
+        throw new Error(`Formspree responded with ${response.status}`);
+      }
+
+      form.reset();
+      setIsSubmitted(true);
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "That didn't go through",
+        description: `Something went wrong sending your message. Email me directly at ${SPEAKING_EMAIL}.`,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -42,7 +64,7 @@ export default function Contact() {
           <SectionHeader
             tag="Contact"
             title="Let's Connect"
-            description="Whether you're interested in working together, have questions, or just want to say hello – I'd love to hear from you."
+            description="Working together, a speaking invite, a question, or just hello. I read everything that lands here."
           />
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -52,7 +74,14 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="heading-4 mb-6">Get in Touch</h3>
+              <h3 className="heading-4 mb-6">Reach me directly</h3>
+
+              <a href={`mailto:${SPEAKING_EMAIL}`} className="inline-block mb-8">
+                <Button variant="orange" size="default">
+                  <Mail className="w-4 h-4" />
+                  Email me
+                </Button>
+              </a>
 
               <div className="mb-8">
                 <p className="text-muted-foreground mb-4">Connect on social</p>
@@ -73,24 +102,20 @@ export default function Contact() {
               </div>
 
               <div className="p-6 bg-primary/5 rounded-2xl border border-primary/20">
-                <h4 className="font-semibold mb-2">Currently Open For</h4>
+                <h4 className="font-semibold mb-2">What I'm saying yes to</h4>
                 <ul className="space-y-2 text-muted-foreground text-sm">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-primary" />
-                    Developer Relations roles
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-primary" />
-                    DevRel consulting projects
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-primary" />
-                    Speaking engagements
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-primary" />
-                    Technical writing partnerships
-                  </li>
+                  {[
+                    "Developer advocacy and DevRel consulting",
+                    "Speaking at your event, podcast, or video series",
+                    "Technical content and documentation projects",
+                    "Community and program management",
+                    "Research collaborations",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </motion.div>
@@ -102,21 +127,25 @@ export default function Contact() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <div className="p-8 bg-card rounded-2xl border border-border">
-                <h3 className="heading-4 mb-6">Send a Message</h3>
+                <h3 className="heading-4 mb-6">Send me a message</h3>
                 
                 {isSubmitted ? (
                   <div className="text-center py-12">
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                       <Check className="w-8 h-8 text-primary" />
                     </div>
-                    <h4 className="font-semibold text-xl mb-2">Message Sent!</h4>
+                    <h4 className="font-semibold text-xl mb-2">Got it!</h4>
                     <p className="text-muted-foreground">
-                      Thank you for reaching out. I'll get back to you as soon as possible.
+                      Thanks for reaching out. I'll get back to you as soon as I can.
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6" action="https://formspree.io/f/mgvgzllp"
-  method="POST">
+                  <form
+                    onSubmit={handleSubmit}
+                    action={FORMSPREE_ENDPOINT}
+                    method="POST"
+                    className="space-y-6"
+                  >
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
                         Name
@@ -149,7 +178,7 @@ export default function Contact() {
                       <Textarea
                         id="message"
                         name="message"
-                        placeholder="Tell me about your project or just say hello..."
+                        placeholder="Tell me what you're working on, or just say hello..."
                         required
                         rows={5}
                         className="resize-none"
