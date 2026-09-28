@@ -113,31 +113,36 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-12 md:py-16 lg:py-20;
   }
 
   .heading-1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.15];
   }
 
   .heading-2 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight;
   }
 
   .heading-3 {
-    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+    @apply text-xl md:text-2xl font-semibold tracking-tight;
   }
 
   .heading-4 {
-    @apply text-xl md:text-2xl font-semibold;
+    @apply text-lg md:text-xl font-semibold;
   }
 
   .body-large {
-    @apply text-lg md:text-xl text-muted-foreground leading-relaxed;
+    @apply text-base md:text-lg text-muted-foreground leading-relaxed;
   }
 
   .body-base {
     @apply text-base text-muted-foreground leading-relaxed;
+  }
+
+  /* Serif italic accent inside a sans heading. Use sparingly. */
+  .accent-serif {
+    @apply font-serif italic font-normal;
   }
 
   .link-hover {
@@ -158,6 +163,13 @@
 }
 
 @layer utilities {
+  /* An endlessly scrolling strip is exactly what reduced-motion users opt out of. */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
+    }
+  }
+
   .animate-fade-up {
     animation: fadeUp 0.5s ease-out forwards;
   }

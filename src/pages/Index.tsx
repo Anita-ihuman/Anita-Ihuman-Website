@@ -1,139 +1,47 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { 
-  FileText, 
-  MessageSquare, 
-  Sparkles,
-  Mic,
-  Youtube,
-  Users,
-  BookOpen
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, MessageSquare, Mic, Sparkles } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/shared/SectionHeader";
-import { ServiceCard } from "@/components/cards/ServiceCard";
+import { ArticleRow } from "@/components/shared/ArticleRow";
+import { CalloutBand } from "@/components/shared/CalloutBand";
+import { PortraitFrame } from "@/components/shared/PortraitFrame";
+import { LogoMarquee } from "@/components/shared/LogoMarquee";
 import { ClientCard } from "@/components/cards/ClientCard";
 import { TestimonialCard } from "@/components/cards/TestimonialCard";
-import { HighlightCard } from "@/components/cards/HighlightCard";
-
-const services = [
-  {
-    icon: Users,
-    title: "Developer Relations Consulting",
-    description: "Strategic guidance to build and scale developer communities, improve adoption, and create meaningful engagement programs.",
-  },
-  {
-    icon: FileText,
-    title: "Technical Writing",
-    description: "Clear, engaging documentation, tutorials, and technical content that resonates with developers and drives product understanding.",
-  },
-  {
-    icon: Sparkles,
-    title: "Community Strategy",
-    description: "Data-driven approaches to build inclusive, sustainable communities around open-source projects and developer tools.",
-  },
-  {
-    icon: BookOpen,
-    title: "Technical Content Support",
-    description: "Comprehensive content strategy including blog posts, case studies, and developer guides that showcase your technology.",
-  },
-  {
-    icon: Mic,
-    title: "Speaking & Workshops",
-    description: "Engaging talks and hands-on workshops at conferences, meetups, and corporate events on cloud-native and open-source topics.",
-  },
-];
-
-const clients = [
-  {
-    name: "UpCloud",
-    logo: "upcloud",
-    role: "Developer Advocacy",
-    description: "Led developer relations initiatives, created technical content, and built community engagement programs for cloud infrastructure.",
-  },
-  {
-    name: "Hit Subscribe",
-    logo: "hitsubscribe",
-    role: "Technical Writing",
-    description: "Produced high-quality technical articles and documentation for various technology companies and developer tools.",
-  },
-  {
-    name: "API7",
-    logo: "api7",
-    role: "Content Strategy",
-    description: "Developed content strategies and technical documentation for API gateway and cloud-native infrastructure solutions.",
-  },
-  {
-    name: "HackMamba",
-    logo: "hackmamba",
-    role: "Community Building",
-    description: "Contributed to community growth initiatives and developer education programs across Africa's tech ecosystem.",
-  },
-];
-
-const testimonials = [
-  {
-    quote: "Anita's ability to translate complex technical concepts into accessible content is remarkable. Her work significantly boosted our developer engagement and community growth.",
-    author: "Sarah Chen",
-    role: "VP of Developer Relations",
-    company: "UpCloud",
-  },
-  {
-    quote: "Working with Anita transformed how we approach developer education. Her strategic insights and authentic communication style brought real results to our community initiatives.",
-    author: "Michael Okonkwo",
-    role: "CTO",
-    company: "HackMamba",
-  },
-  {
-    quote: "Anita's technical writing elevated our documentation to a new level. She understands what developers need and delivers content that truly helps them succeed.",
-    author: "James Liu",
-    role: "Head of Content",
-    company: "API7",
-  },
-];
-
-const highlights = [
-  {
-    icon: Mic,
-    title: "50+ Speaking Engagements",
-    description: "Keynotes and talks at KubeCon, Open Source Summit, All Things Open, and more.",
-    link: "/talks",
-    linkText: "View Talks",
-  },
-  {
-    icon: FileText,
-    title: "100+ Technical Articles",
-    description: "Published on cloud-native, DevOps, Kubernetes, and community building topics.",
-    link: "/blog",
-    linkText: "Read Blog",
-  },
-  {
-    icon: Youtube,
-    title: "Featured on 20+ Shows",
-    description: "YouTube appearances, podcast interviews, and panel discussions on DevRel.",
-    link: "/youtube",
-    linkText: "Watch Videos",
-  },
-];
+import { EngagementRow } from "@/components/shared/EngagementRow";
+import { featuredArticles } from "@/data/articles";
+import { featuredEngagements } from "@/data/engagements";
+import {
+  SPEAKING_EMAIL,
+  clients,
+  committees,
+  credentials,
+  leadership,
+  marqueeOrgs,
+  projects,
+  testimonials,
+} from "@/data/profile";
 
 export default function Index() {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="min-h-[90vh] flex items-center relative overflow-hidden">
+      {/* Hero */}
+      <section className="min-h-[78vh] flex items-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-light/30 via-transparent to-transparent" />
-        <div className="container-custom relative">
-          <div className="max-w-4xl">
+        <div className="container-custom relative py-12">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
+            <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-6"
+              className="mb-5"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 text-primary text-xs md:text-sm font-medium rounded-full">
                 <Sparkles className="w-4 h-4" />
-                Currently open for Developer Relations roles
+                DevRel & Software Engineer
               </span>
             </motion.div>
 
@@ -141,28 +49,42 @@ export default function Index() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="heading-1 mb-6"
+              className="heading-1 mb-5"
             >
               Hi, I'm <span className="text-primary">Anita Ihuman</span>
             </motion.h1>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-2xl md:text-3xl font-medium text-foreground/80 mb-6"
+              className="max-w-2xl space-y-4 mb-7"
             >
-              Senior Developer Advocate
-            </motion.p>
+              <p className="text-lg md:text-xl font-medium text-foreground/85 leading-snug">
+                I'm software evangelist. My work drives product growth and adoption, turns hard
+                concepts into content people can actually learn from.
+              </p>
+              <p className="body-large">
+                I build, write, and talk about open source, cloud tools, AI agents, and the
+                infrastructure underneath it all.
+              </p>
+            </motion.div>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="body-large max-w-2xl mb-10"
+              className="flex flex-wrap items-center gap-x-2 gap-y-2 mb-8"
             >
-              I am an open-source leader, developer advocate, and community strategist with over five years of experience working at the intersection of cloud-native technologies, community building, and inclusivity in tech. From leading DevRel efforts at projects like mirrord and Kyverno to shaping governance at CHAOSS, OpenUK, and NumFOCUS, my work focuses on driving adoption, educating developers, and building sustainable open-source communities.
-            </motion.p>
+              {credentials.map((credential) => (
+                <span
+                  key={credential}
+                  className="px-3 py-1 text-xs md:text-sm font-medium bg-secondary text-secondary-foreground rounded-full"
+                >
+                  {credential}
+                </span>
+              ))}
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -170,18 +92,28 @@ export default function Index() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-wrap gap-4"
             >
-              <Link to="/about">
+              <Link to="/work-with-me">
                 <Button variant="hero" size="lg">
-                  <FileText className="w-5 h-5" />
-                  View Resume
+                  <ArrowRight className="w-5 h-5" />
+                  Work with me
                 </Button>
               </Link>
               <Link to="/contact">
                 <Button variant="hero-outline" size="lg">
                   <MessageSquare className="w-5 h-5" />
-                  Get in Touch
+                  Say hello
                 </Button>
               </Link>
+            </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="order-first lg:order-none mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-none"
+            >
+              <PortraitFrame src="/anita-home" alt="Anita Ihuman" eager />
             </motion.div>
           </div>
         </div>
@@ -191,75 +123,198 @@ export default function Index() {
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-2xl" />
       </section>
 
-      {/* Highlights Section */}
-      <section className="section-padding bg-secondary/30">
+      {/* Trusted by */}
+      <section className="pb-8 md:pb-12">
         <div className="container-custom">
-          <SectionHeader
-            tag="Highlights"
-            title="What I've Been Up To"
-            description="A glimpse into my speaking engagements, writing, and media appearances."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {highlights.map((highlight, index) => (
-              <HighlightCard key={highlight.title} {...highlight} index={index} />
-            ))}
-          </div>
+          <LogoMarquee label="Trusted by teams at" orgs={marqueeOrgs} />
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <SectionHeader
-            tag="Services"
-            title="How I Can Help"
-            description="Specialized services to help organizations build thriving developer communities and create impactful technical content."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <ServiceCard key={service.title} {...service} index={index} />
-            ))}
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          >
-            <Link to="/contact">
-              <Button variant="orange" size="lg">
-                Book a Consultation
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Clients Section */}
+      {/* Projects */}
       <section className="section-padding bg-secondary/30">
         <div className="container-custom">
           <SectionHeader
-            tag="Clients"
-            title="Trusted By"
-            description="Organizations I've had the privilege to work with and support their developer relations goals."
+            tag="Projects"
+            title="What I'm building right now"
+            description="Two things I'm putting my own time into, both aimed at making a confusing space easier to navigate."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {clients.map((client, index) => (
-              <ClientCard key={client.name} {...client} index={index} />
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group p-6 md:p-7 bg-card rounded-2xl border border-border hover:border-primary/30 hover:shadow-lg transition-all"
+              >
+                <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-4">
+                  {project.tagline}
+                </span>
+                <h3 className="heading-4 mb-3">{project.name}</h3>
+                <p className="body-base">{project.description}</p>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-4 hover:gap-2 transition-all"
+                  >
+                    Take a look <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Writing */}
       <section className="section-padding">
+        <div className="container-custom">
+          <SectionHeader
+            tag="Writing"
+            title="Things I've written lately"
+            description="I write to figure things out, then publish so you don't have to figure them out from scratch."
+            align="left"
+          />
+          <div className="max-w-4xl">
+            {featuredArticles.map((article, index) => (
+              <ArticleRow key={article.link} article={article} index={index} />
+            ))}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mt-10"
+            >
+              <Link to="/blog">
+                <Button variant="orange-outline" size="lg">
+                  Show more
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Speaking */}
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom">
+          <SectionHeader
+            tag="Speaking"
+            title="Where I've been on stage"
+            description="So far I've spoken at over 30 conferences across Africa, Europe, North America, and Asia. Here are five I'd point you to first."
+            align="left"
+          />
+          <div className="max-w-4xl">
+            {featuredEngagements.map((engagement, index) => (
+              <EngagementRow key={engagement.link} engagement={engagement} index={index} />
+            ))}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mt-10"
+            >
+              <Link to="/talks">
+                <Button variant="orange-outline" size="lg">
+                  See all talks, podcasts & webinars
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Speaking invitation */}
+      <section className="pb-16 md:pb-20">
+        <div className="container-custom">
+          <CalloutBand
+            icon={Mic}
+            title="Want me to speak at your event?"
+            description="Event, podcast, or video series. Tell me what you're putting together."
+            actionLabel="Get in touch"
+            href={`mailto:${SPEAKING_EMAIL}`}
+          />
+        </div>
+      </section>
+
+
+      {/* Leadership & Committees */}
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom">
+          <SectionHeader
+            tag="Leadership"
+            title="Rooms where I help decide"
+            description="Boards, advisory seats, and program committees I serve on."
+          />
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+            <div>
+              <h3 className="heading-4 mb-6">Leadership</h3>
+              <ul className="space-y-1">
+                {leadership.map((role, index) => (
+                  <motion.li
+                    key={`${role.title}-${role.organization ?? index}`}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    className="flex flex-wrap items-baseline gap-x-2 py-3 border-b border-border"
+                  >
+                    <span className="font-medium text-foreground">{role.title}</span>
+                    {role.organization && (
+                      <span className="text-muted-foreground">· {role.organization}</span>
+                    )}
+                    {role.period && (
+                      <span className="ml-auto text-sm text-primary font-medium">
+                        {role.period}
+                      </span>
+                    )}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="heading-4 mb-6">Committees</h3>
+              <ul className="space-y-1">
+                {committees.map((role, index) => (
+                  <motion.li
+                    key={`${role.title}-${role.organization ?? index}`}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    className="flex flex-wrap items-baseline gap-x-2 py-3 border-b border-border"
+                  >
+                    <span className="font-medium text-foreground">{role.title}</span>
+                    {role.organization && (
+                      <span className="text-muted-foreground">· {role.organization}</span>
+                    )}
+                    {role.period && (
+                      <span className="ml-auto text-sm text-primary font-medium">
+                        {role.period}
+                      </span>
+                    )}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+         {/* Testimonials */}
+      <section className="section-padding bg-secondary/30">
         <div className="container-custom">
           <SectionHeader
             tag="Testimonials"
-            title="What People Say"
-            description="Feedback from clients and collaborators I've had the pleasure of working with."
+            title="What it's like working with me"
+            description="In their words, not mine."
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard key={testimonial.author} {...testimonial} index={index} />
             ))}
@@ -267,24 +322,27 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding bg-foreground text-background">
-        <div className="container-custom text-center">
+      {/* CTA */}
+      <section className="py-16 md:py-20">
+        <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl mx-auto"
+            className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="heading-2 mb-6">Let's Work Together</h2>
-            <p className="text-background/70 text-lg mb-8">
-              Ready to elevate your developer relations strategy or need help building a thriving community? I'd love to hear from you.
+            <h2 className="heading-3 mb-3">
+              Let's build something <span className="accent-serif">together</span>
+            </h2>
+            <p className="body-base mb-8">
+              A developer community that actually grows, content developers trust, or someone on
+              stage who knows the subject. Tell me what you're working on.
             </p>
-            <Link to="/contact">
-              <Button variant="orange" size="xl">
-                Start a Conversation
+            <a href={`mailto:${SPEAKING_EMAIL}`}>
+              <Button variant="orange" size="lg">
+                Get in touch
               </Button>
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>

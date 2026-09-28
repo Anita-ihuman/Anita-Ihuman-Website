@@ -7,10 +7,9 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
+import WorkWithMe from "./pages/WorkWithMe";
 import Talks from "./pages/Talks";
-import Community from "./pages/Community";
 import Research from "./pages/Research";
-import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -27,10 +26,9 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/work-with-me" element={<WorkWithMe />} />
             <Route path="/talks" element={<Talks />} />
-            <Route path="/community" element={<Community />} />
             <Route path="/research" element={<Research />} />
-            <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
