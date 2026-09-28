@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { ClientCard } from "@/components/cards/ClientCard";
+import { PortraitFrame } from "@/components/shared/PortraitFrame";
 import { SPEAKING_EMAIL, clients, testimonials } from "@/data/profile";
 
 const services = [
@@ -74,7 +75,8 @@ export default function WorkWithMe() {
       {/* Hero */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="max-w-3xl">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
+            <div className="max-w-2xl">
             <motion.span
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -114,6 +116,16 @@ export default function WorkWithMe() {
                   Get in touch
                 </Button>
               </a>
+            </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="order-first lg:order-none mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-none"
+            >
+              <PortraitFrame src="/anita-wwm" alt="Anita Ihuman" eager />
             </motion.div>
           </div>
         </div>

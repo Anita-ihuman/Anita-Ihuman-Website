@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { ArticleRow } from "@/components/shared/ArticleRow";
 import { CalloutBand } from "@/components/shared/CalloutBand";
+import { PortraitFrame } from "@/components/shared/PortraitFrame";
 import { LogoMarquee } from "@/components/shared/LogoMarquee";
 import { ClientCard } from "@/components/cards/ClientCard";
 import { TestimonialCard } from "@/components/cards/TestimonialCard";
@@ -30,7 +31,8 @@ export default function Index() {
       <section className="min-h-[78vh] flex items-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-light/30 via-transparent to-transparent" />
         <div className="container-custom relative py-12">
-          <div className="max-w-4xl">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
+            <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -102,6 +104,16 @@ export default function Index() {
                   Say hello
                 </Button>
               </Link>
+            </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="order-first lg:order-none mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-none"
+            >
+              <PortraitFrame src="/anita-home" alt="Anita Ihuman" eager />
             </motion.div>
           </div>
         </div>
