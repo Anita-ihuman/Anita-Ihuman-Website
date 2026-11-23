@@ -204,7 +204,7 @@ export default function Talks() {
             className="text-center mt-12"
           >
             <a
-              href="https://www.youtube.com/@TechwithAnita/"
+              href="https://www.youtube.com/@DevRel-Compass/"
               target="_blank"
               rel="noopener noreferrer"
             >
